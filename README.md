@@ -1,8 +1,7 @@
 # ai-keyboard-generator
 
 An evolution based AI that tries to generate a keyboard with the best possible layout for the swedish language.
-
-This is a work in progress and might not work correctly.
+_This is a work in progress and might not work correctly._
 
 ## How it works
 
