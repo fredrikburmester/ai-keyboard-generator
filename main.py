@@ -9,16 +9,28 @@ import matplotlib.pyplot as plt
 
 run_tests = False
 
+# fingers_interface = {
+#   0: 'left_pinky',
+#   1: 'left_ring',
+#   2: 'left_middle',
+#   3: 'left_index',
+#   4: 'thumb', 
+#   5: 'right_index',
+#   6: 'right_middle',
+#   7: 'right_ring',
+#   8: 'right_pinky'
+# }
+
 fingers_interface = {
-  0: 'left_pinky',
-  1: 'left_ring',
-  2: 'left_middle',
-  3: 'left_index',
-  4: 'thumb', 
-  5: 'right_index',
-  6: 'right_middle',
-  7: 'right_ring',
-  8: 'right_pinky'
+  'left_pinky': 0,
+  'left_ring': 1,
+  'left_middle': 2,
+  'left_index': 3,
+  'thumb': 4,
+  'right_index': 5,
+  'right_middle': 6,
+  'right_ring': 7,
+  'right_pinky': 8
 }
 
 original_keyboard = "qazwsxedcrfvtgbyhnujmik,ol.pöåä"
@@ -292,9 +304,64 @@ def get_key_finger_relation(key):
   # assertion error if we get here
   assert False, "No key finger relation found"
 
+def euclidean_key_distance(key1, key2):
+    # Define the keyboard layout
+    keyboard = [
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'å'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ö', 'ä'],
+        ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.']
+    ]
+
+    # Find the keys on the keyboard
+    for row in keyboard:
+        if key1 in row:
+            key1_row = keyboard.index(row)
+            key1_col = row.index(key1)
+        if key2 in row:
+            key2_row = keyboard.index(row)
+            key2_col = row.index(key2)
+
+    # Calculate the distance between the keys
+    distance = ((key1_row - key2_row)**2 + (key1_col - key2_col)**2)**0.5
+
+    return distance
+
+def finger_hey_relation_euclidean(key, fingers = 3):
+  if fingers == 4:
+    relations = {
+      'left_pinky': ['q', 'a', 'z'],
+      'left_ring': ['w', 's', 'x'],
+      'left_middle': ['e', 'd', 'c'],
+      'left_index': ['r', 'f', 'v', 't', 'g', 'b'],
+      'right_index': ['y', 'h', 'n', 'u', 'j', 'm'],
+      'right_middle': ['i', 'k', ','],
+      'right_ring': ['o', 'l', '.'],
+      'right_pinky': ['p', 'å', 'ä', 'ö']
+    }
+  elif fingers == 3:
+    relations = {
+      'left_index': ['r', 'f', 'v', 't', 'g', 'b'],
+      'left_middle': ['e', 'd', 'c'],
+      'left_ring': ['w', 's', 'x'],
+      'right_index': ['u', 'h', 'j', 'y', 'n', 'm'],
+      'right_middle': ['i', 'k', 'o', 'l', 'ö', 'ä', 'å', '.', ','],
+    }
+  elif fingers == 1:
+    relations = {
+      'left_index': ['q', 'a', 'z', 'w', 's', 'x', 'e', 'd', 'c', 'r', 'f', 'v', 't', 'g', 'b'],
+      'right_index': ['u', 'h', 'j', 'y', 'n', 'm', 'i', 'k', 'o', 'l', 'ö', 'ä', 'å', '.', ','],
+    }
+
+  for finger in relations:
+    if key in relations[finger]:
+      return fingers_interface[finger]
+
 def eval(keyboard, text):
   # Finger positions
   fingers = ['a', 's', 'd', 'f','_', 'j', 'k', 'l', 'ö']
+  three_fingers = ['s', 'd', 'f','_', 'j', 'k', 'l']
+  two_fingers = ['d', 'f','_', 'j', 'k']
+  one_finger = ['f','_', 'j']
   
   # For each letter in the text, check what finger should be used, check where the finger is, and calculate the distance
   distance = 0
@@ -304,12 +371,6 @@ def eval(keyboard, text):
       print()
       print("Letter: " + text[i])
 
-    # # Get index of key in new keyboard string
-    # key_index = original_keyboard.find(text[i])
-
-    # # Find the corresponding key in new keyboard
-    # key = keyboard[key_index]
-
     key_index = keyboard.find(text[i])
     key = original_keyboard[key_index]
 
@@ -317,11 +378,11 @@ def eval(keyboard, text):
 
     finger = get_key_finger_relation(key)
 
-    if run_tests: print(f"{fingers[finger]} -> {key}, distance: {get_distance(fingers[finger], key)}")
+    if run_tests: print(f"{fingers[finger]} -> {key}, distance: {euclidean_key_distance(fingers[finger], key)}")
 
     finger_pos = fingers[finger]
 
-    distance += get_distance(finger_pos, key)
+    distance += euclidean_key_distance(finger_pos, key)
 
     fingers[finger] = key
 
@@ -407,8 +468,8 @@ def main():
 
   # Plot the best evaluation for each generation
   plt.xlabel('Generation')
-  plt.ylabel('Evaluation')
-  plt.title('Best evaluation for each generation')
+  plt.ylabel('Fitness')
+  plt.title('Best fitness score per generation')
 
   # Tests
   if run_tests: 
@@ -424,8 +485,7 @@ def main():
     assert get_distance('a', 's') == 1
     assert get_distance('a', 'd') == 2
 
-    print(eval(original_keyboard, "hej"))
-    assert eval(original_keyboard, "hej") == 3.032
+    print(eval(original_keyboard, "hejäqa"))
 
     print(eval(original_keyboard, evaluation_text))
 
@@ -482,8 +542,18 @@ def main():
     
 
     # Save the plot to a file
-    plt.plot(all_best_evals)
-    plt.savefig(f"./images/plot.png")
+    plt.plot(all_best_evals, color="green")
+
+  # # plot a fitted line to the data
+  # x = range(len(all_best_evals))
+  # y = all_best_evals
+
+  # print(x, y)
+  # z = np.polyfit(x, y, 1)
+  # p = np.poly1d(z)
+  # plt.plot(x, p(x), color="red")
+
+  plt.savefig(f"./images/plot.png")
 
 
   if not run_tests:
