@@ -1,6 +1,6 @@
 # Create starting population of the 1st generation 
 import argparse
-from functools import partial
+from functools import cache
 from multiprocessing import Pool
 import random
 import re
@@ -84,13 +84,21 @@ def mate(keyboard1, keyboard2):
   for i in range(int(const_length/2)):
     child[i] = keyboard1[i]
 
-  # Add missing keys from keyboard 2
-  for i in range(int(const_length/2), const_length):
-    for j in range(const_length):
-      if keyboard2[j] not in child:
-        child[i] = keyboard2[j]
-        break
+  for i in range(len(child)):
+    if child[i] == '_':
+      key = keyboard2[i]
+      if key not in child:
+        child[i] = key
 
+  # Add missing keys from keyboard 2
+  for i in range(len(child)):
+    if child[i] == '_':
+      for j in range(len(keyboard2)):
+        if keyboard2[j] not in child:
+          child[i] = keyboard2[j]
+          break
+
+  # Sometimes, mutate the child
   prob = random.random()
   if prob > 0.9:
     point1 = random.randint(0, const_length-1)
@@ -107,6 +115,7 @@ def mate(keyboard1, keyboard2):
 
   return child_str
 
+@cache
 def get_key_row(key):
   if key in ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'å']: 
     return 1
@@ -115,7 +124,7 @@ def get_key_row(key):
   elif key in ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.']:
     return 3
 
-
+@cache
 def get_key_col(key):
   if key in ['q', 'a', 'z']:
     return 1
@@ -140,6 +149,7 @@ def get_key_col(key):
   elif key in ['å', 'ä']:
     return 11
 
+@cache
 def get_known_distance(key1, key2):
   adj_distance = 1
   diag_up_left_distance = 1.032
@@ -205,6 +215,7 @@ def get_known_distance(key1, key2):
   
   return -1
 
+@cache
 def get_distance(key1, key2):
   adj_distance = 1
   diag_up_left_distance = 1.032
@@ -243,6 +254,7 @@ def get_distance(key1, key2):
   # assertion error if we get here
   assert False, "No distance found for keys: " + key1 + " and " + key2
 
+@cache
 def get_key_finger_relation(key):
   row = get_key_row(key)
   col = get_key_col(key)
@@ -286,24 +298,37 @@ def eval(keyboard, text):
   
   # For each letter in the text, check what finger should be used, check where the finger is, and calculate the distance
   distance = 0
+
   for i in range(len(text)):
     if run_tests:
       print()
       print("Letter: " + text[i])
 
-    # Get index of key in new keyboard string
-    key_index = original_keyboard.find(text[i])
+    # # Get index of key in new keyboard string
+    # key_index = original_keyboard.find(text[i])
 
-    # Find the corresponding key in original keyboard
-    key = keyboard[key_index]
+    # # Find the corresponding key in new keyboard
+    # key = keyboard[key_index]
+
+    key_index = keyboard.find(text[i])
+    key = original_keyboard[key_index]
 
     if run_tests: print("Key: " + key + " index: " + str(key_index))
 
     finger = get_key_finger_relation(key)
+
     if run_tests: print(f"{fingers[finger]} -> {key}, distance: {get_distance(fingers[finger], key)}")
+
     finger_pos = fingers[finger]
+
     distance += get_distance(finger_pos, key)
+
     fingers[finger] = key
+
+  # print("get_key_finger_relation_time: " + str(get_key_finger_relation_time))
+  # print("get_distance_time: " + str(get_distance_time))
+  # print("original_keyboard_find_time: " + str(original_keyboard_find_time))
+  # print()
 
   return distance
 
@@ -339,9 +364,9 @@ def print_keyboard(keyboard):
 def main():
   # command line arguments
   parser = argparse.ArgumentParser()
-  parser.add_argument("-text", "--text", help="text to be typed")
+  parser.add_argument("-t", "--text", help="text to be typed")
   parser.add_argument("-test", "--test", help="run tests", action="store_true")
-  parser.add_argument("-e", "--evolutions", help="number of evolutions", type=int)
+  parser.add_argument("-g", "--generations", help="number of generations", type=int)
   parser.add_argument("-p", "--population", help="population size", type=int)
   args = parser.parse_args()
 
@@ -353,16 +378,16 @@ def main():
   else: 
     pop_size = 100
 
-  if args.evolutions:
-    evolutions = args.evolutions
+  if args.generations:
+    generations = args.generations
   else:
-    evolutions = 100
+    generations = 100
 
   # Import the exaluation text from the text file text.txt
   if args.text:
     evaluation_text = args.text
   else:
-    evaluation_text = open("dataset.txt", "r").read()
+    evaluation_text = open("dataset.txt", "r", encoding="utf8").read()
 
   print("Original keyboard:")
   print_keyboard(original_keyboard)
@@ -387,8 +412,9 @@ def main():
 
   # Tests
   if run_tests: 
-    evolutions = 1
+    generations = 1
     pop_size = 1
+
     population = [original_keyboard]
     if args.text:
       evaluation_text = args.text
@@ -398,13 +424,14 @@ def main():
     assert get_distance('a', 's') == 1
     assert get_distance('a', 'd') == 2
 
+    print(eval(original_keyboard, "hej"))
     assert eval(original_keyboard, "hej") == 3.032
 
     print(eval(original_keyboard, evaluation_text))
 
-  for i in range(evolutions):
+  for i in range(generations):
     print("--------------------")
-    print("Evolution: " + str(i+1) )
+    print("Generation: " + str(i+1) )
     print("Population length: ", len(population))
 
     evals = []
@@ -412,10 +439,12 @@ def main():
 
     # Time the evaluation
     start = time.time()
-    evals = pool.map(partial(eval, text=evaluation_text), population)
-    # for j in range(pop_size):
-      # evals.append(eval(population[j], evaluation_text))
+    # evals = pool.imap_unordered(partial(eval, text=evaluation_text), population)
+    for j in range(len(population)):
+      evals.append(eval(population[j], evaluation_text))
     end = time.time()
+
+    # evals = list(evals)
 
     print("Evaluation time: " + str(end - start))
 
@@ -423,19 +452,34 @@ def main():
 
     all_best_evals.append(int(evals[0]))
 
-    print("Best keyboard from previous generation:\n")
-
-    print_keyboard(population[0])
-
+    
     # Best 10 keyboards
-    print("\nBest keyboards from previous generation:")
-    for k in range(int(pop_size*0.1) + 1):
-      print(population[k])
+    if pop_size > 3:
+      print("\nBest keyboards from previous generation:")
+      for k in range(3):
+        print(f" - {population[k]}")
+      print()
+      print("Best keyboard:\n")
+      print_keyboard(population[0])
+    else: 
+      print("Best keyboard from previous generation:\n")
+      print_keyboard(population[0])
 
-    # Sort population by evaluation
+    # print(evals)
+    # # Sort population by evaluation
+
+    # for i in range(len(evals)):
+    #   print(f"{population[i]}: {evals[i]}")
+
     population = [x for _,x in sorted(zip(evals, population))]
+
+    # print()
+    # for i in range(len(evals)):
+    #   print(f"{population[i]}: {evals[i]}")
+
     next_gen = next_generation(population, pop_size)
     population = next_gen
+    
 
     # Save the plot to a file
     plt.plot(all_best_evals)
