@@ -34,6 +34,8 @@ Here is the final generated keyboard from the image below. We can see that the l
   jzövwpqfy
 ```
 
+The 5 most common letters in the swedish alphabet are `a`, `e`, `t`, `n` and `r`, 4 of which are in the middle row.
+
 ### Image of a sample run
 
 ![Image of a sample run](./images/long_training_example.png)
