@@ -15,6 +15,13 @@ The algorithm is based on the following steps:
 3. Select 10% of the best keyboards, breed some of the best 50% of keyboard, and add 40% of random keyboards to the population.
 4. Repeat from step 2
 
+## How to run
+
+1. Create a virtual environment and install the requirements with `pip install -r requirements.txt`
+2. Run the program with `python3 main.py -g <number_of_evolutions> -p <population_size>`
+
+Type `python3 main.py -h` to get a list of commands.
+
 ## Image of a sample run
 
 ![Image of a sample run](./images/sample_run.png)

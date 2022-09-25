@@ -9,6 +9,12 @@ __pycache__/
 # Mac
 .DS_Store
 
+# Virtualenv
+bin/
+lib/
+share/ 
+pyenv.cfg
+
 # Distribution / packaging
 .Python
 build/

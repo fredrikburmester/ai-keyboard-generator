@@ -1,10 +1,13 @@
 # Create starting population of the 1st generation 
+import argparse
 from functools import partial
+from multiprocessing import Pool
 import random
 import re
 import time
 import matplotlib.pyplot as plt
-from multiprocessing import Pool
+
+run_tests = False
 
 fingers_interface = {
   0: 'left_pinky',
@@ -230,7 +233,7 @@ def get_distance(key1, key2):
   if key1_col == key2_col:
     row_distance = abs(key1_row - key2_row)
     if row_distance == 1:
-      return adj_distance
+      return diag_up_left_distance
     elif row_distance == 2:
       return diag_up_left_two_rows_distance
   elif key1_row == key2_row:
@@ -284,8 +287,9 @@ def eval(keyboard, text):
   # For each letter in the text, check what finger should be used, check where the finger is, and calculate the distance
   distance = 0
   for i in range(len(text)):
-    # print()
-    # print("Letter: " + text[i])
+    if run_tests:
+      print()
+      print("Letter: " + text[i])
 
     # Get index of key in new keyboard string
     key_index = original_keyboard.find(text[i])
@@ -293,10 +297,10 @@ def eval(keyboard, text):
     # Find the corresponding key in original keyboard
     key = keyboard[key_index]
 
-    # print("Key: " + key + " index: " + str(key_index))
+    if run_tests: print("Key: " + key + " index: " + str(key_index))
 
     finger = get_key_finger_relation(key)
-    # print(f"{fingers[finger]} -> {key}, distance: {get_distance(fingers[finger], key)}")
+    if run_tests: print(f"{fingers[finger]} -> {key}, distance: {get_distance(fingers[finger], key)}")
     finger_pos = fingers[finger]
     distance += get_distance(finger_pos, key)
     fingers[finger] = key
@@ -333,16 +337,37 @@ def print_keyboard(keyboard):
   
 
 def main():
+  # command line arguments
+  parser = argparse.ArgumentParser()
+  parser.add_argument("-text", "--text", help="text to be typed")
+  parser.add_argument("-test", "--test", help="run tests", action="store_true")
+  parser.add_argument("-e", "--evolutions", help="number of evolutions", type=int)
+  parser.add_argument("-p", "--population", help="population size", type=int)
+  args = parser.parse_args()
+
+  global run_tests
+  run_tests = args.test
+
+  if args.population:
+    pop_size = args.population
+  else: 
+    pop_size = 100
+
+  if args.evolutions:
+    evolutions = args.evolutions
+  else:
+    evolutions = 100
+
+  # Import the exaluation text from the text file text.txt
+  if args.text:
+    evaluation_text = args.text
+  else:
+    evaluation_text = open("dataset.txt", "r").read()
+
   print("Original keyboard:")
   print_keyboard(original_keyboard)
 
-  evolutions = 300
-
-  pop_size = 1000
   population = init_population(pop_size)
-
-  # Import the exaluation text from the text file text.txt
-  evaluation_text = open("text.txt", "r").read()
 
   # Convert to lower case
   evaluation_text = evaluation_text.lower()
@@ -356,11 +381,26 @@ def main():
   all_best_evals = []
 
   # Plot the best evaluation for each generation
-
   plt.xlabel('Generation')
   plt.ylabel('Evaluation')
   plt.title('Best evaluation for each generation')
 
+  # Tests
+  if run_tests: 
+    evolutions = 1
+    pop_size = 1
+    population = [original_keyboard]
+    if args.text:
+      evaluation_text = args.text
+    else:
+      evaluation_text = open("test_dataset.txt", "r").read()
+    print("Tests:")
+    assert get_distance('a', 's') == 1
+    assert get_distance('a', 'd') == 2
+
+    assert eval(original_keyboard, "hej") == 3.032
+
+    print(eval(original_keyboard, evaluation_text))
 
   for i in range(evolutions):
     print("--------------------")
@@ -388,12 +428,12 @@ def main():
     print_keyboard(population[0])
 
     # Best 10 keyboards
-    print("\nBest 10 keyboards from previous generation:")
-    for k in range(10):
+    print("\nBest keyboards from previous generation:")
+    for k in range(int(pop_size*0.1) + 1):
       print(population[k])
 
     # Sort population by evaluation
-    population = [x for _,x in sorted(zip(evals,population))]
+    population = [x for _,x in sorted(zip(evals, population))]
     next_gen = next_generation(population, pop_size)
     population = next_gen
 
@@ -402,10 +442,10 @@ def main():
     plt.savefig(f"./images/plot.png")
 
 
-  print("\nBest keyboard: ")
-  print_keyboard(population[0])
-  
-  plt.show()
+  if not run_tests:
+    print("\nBest keyboard: ")
+    print_keyboard(population[0])
+    plt.show()
 
 if __name__ == "__main__":
   main()
