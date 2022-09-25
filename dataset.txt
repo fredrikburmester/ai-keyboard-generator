@@ -125,3 +125,68 @@ Sett över tid har andelen som tycker mycket bra om skolan till stora delar vari
 som tycker att kraven ökar, samtidigt som det är färre som tycker att de har möjlighet att påverka sin
 skolsituation, att de blir rättvist behandlade av sina lärare och att de får hjälp från lärare då de behöver
 det.
+
+Syftet med detta projekt är att göra uppdaterade och utvecklade livscykelanalyser för biodrivmedel som är
+aktuella i Sverige idag. Fokus ligger på att göra så transparenta och relevanta jämförelser som möjligt och
+att lyfta fram de steg i livscykeln som signifikant påverkar respektive biodrivmedels miljöprestanda. I
+studien görs känslighetsanalyser som visar effekterna av t ex framtida förändrade produktionsförutsättningar. Studiens resultat ska tolkas som aktuell och genomsnittlig miljöprestanda för respektive
+biodrivmedel utifrån de utvecklade beräkningsmetoder som tillämpas idag, d v s det kan finnas vissa
+skillnader mot specifika produktionssystem som olika företag utnyttjar idag. De biodrivmedelssystem som
+inkluderas är etanol från vete, sockerbetor och sockerrör (import från Brasilien), RME från raps, biogas från
+sockerbetor, vall, majs samt från restprodukter i form av hushållsavfall, industriavfall och gödsel. Dessutom
+ingår samproduktion av etanol och biogas från vete. Utsläpp från såväl tunga som lätta fordon inkluderas.
+De miljöeffektkategorier som ingår är klimatpåverkan, övergödning, försurning, fotokemiska oxidanter
+(marknära ozon), partiklar samt energibalans. I beräkningarna beaktas utsläpp från tekniska system, framför
+allt från den insatsenergi som krävs, men också biogena utsläpp av lustgas och koldioxid från en direkt
+förändrad markanvändning. En analys görs av eventuella indirekta markeffekter utanför Sveriges gränser.
+Vid hantering av de restprodukter och biprodukter som fås i de olika systemen tillämpas tre olika
+beräkningsmetoder; systemutvidgning, energiallokering samt ekonomisk allokering. Resultaten presenteras
+per MJ drivmedel men en alternativ funktionell enhet, per hektar åkermark, redovisas också för
+klimatprestanda för drivmedel baserade på grödor. 
+Samtliga av dagens svenska biodrivmedel bedöms leda till en stor klimatnytta jämfört
+med fossila drivmedel när också direkta markförändringar inkluderas. Reduktionen av
+växthusgaser jämfört med fossila drivmedel beräknas till mellan 67% och 148%
+beroende av drivmedelskedja, men det finns också stora variationer inom respektive
+system beroende av lokala förutsättningar och beräkningsmetodik. Dagens produktion
+bedöms inte medföra några signifikanta negativa nettoeffekter av indirekta
+markförändringar utanför Sveriges gränser.
+Direkta markförändringar antas ske på en fjärdedel av åkermarken genom att odling av
+ettåriga drivmedelsgrödor sker på tidigare gräsbevuxen mark. Denna bedömning är
+troligen en överskattning snarare än en underskattning. Idag utnyttjas cirka 5% av den
+svenska åkerarealen för biodrivmedelsproduktion. Vid en framtida expansion av
+biodrivmedel från ettåriga grödor kan andelen f d gräsbevuxen åkermark som utnyttjas
+öka vilket ger ökade biogena utsläpp av växthusgaser. Detta kan å andra sidan
+motverkas av olika effektiviseringsåtgärder i hela produktionskedjan. Ett exempel är
+utökad lustgasrening vid tillverkning av mineralgödselkväve som kan öka
+klimatnyttan med flera procentenheter.
+Idag utnyttjas inte all åkermark i Sverige och intensiteten i den befintliga växtodlingen
+bedöms också kunna öka, framför allt inom vallodling. Detta möjliggör en viss
+expansion av inhemsk biodrivmedelsproduktion från åkergrödor utan negativa
+indirekta markanvändningseffekter (vid en konstant livsmedels- och foderproduktion).
+En förutsättning är dock att expansionstakten är väl avvägd så att dessa potentiella
+dynamiska effekter tas tillvara. Dagens drivmedels- och foderkombinat kan också leda
+till positiva indirekta markanvändningseffekter genom att behovet av importerat
+sojafoder minskar.
+
+Tillsammans med klimatpåverkan är också bidrag till övergödning en mycket viktig
+aspekt att beakta när det gäller biodrivmedel från grödor och jordbruksbaserade
+restprodukter. När systemutvidgning tillämpas blir bidraget till övergödningen relativt
+lika mellan spannmålsetanol och biogas från restprodukter. Orsaken till detta är att
+etanol får positiva indirekta effekter när dranken ersätter andra fodergrödor medan
+biogas får en viss negativ indirekt effekt när rötrest ersätter mineralgödsel vilket
+medför något ökade kväveförluster. Etanol från sockerbetor är ännu bättre ur
+övergödningssynpunkt tack vare ett relativt sett högt drivmedelsutbyte per hektar i
+kombination med indirekta vinster när biprodukten pulpa ersätter foderspannmål.
+Bidraget till övergödningen är något högre för biogas baserat på sockerbetor och vall
+samt sockerrörsetanol, och ännu högre för biogas från majs samt biogas och etanol
+från vete. RME ger högst bidrag till övergödningen. 
+
+Utsläppen från tunga fordon som bidrar till övergödningen bedöms vara i samma
+storleksordning som de vid produktionen av spannmålsetanol och biogas från
+restprodukter. För övriga biodrivmedel är utsläppen från drivmedelsproduktionen
+minst dubbelt så stora som från tunga fordon. Utsläppen från lätta fordon som bidrar
+till övergödningen är betydligt lägre och utgör normalt endast någon eller några
+procent av de från drivmedelsproduktionen. Ett undantag är RME där utsläppen från
+fordonet utgör ungefär en tredjedel.
+
+I denna studie har tillvägagångssättet bestått av övervakad och icke-övervakad inlärning. Övervakad inlärning har utförts genom att skapa en varningsvariabel som markerar om ett avrop (efterfrågad kvantitet och efterfrågat leveransdatum) utgör en varning. Slumpmässig skog, k-närmaste grannar, stödvektormaskin och naiva bayes har använts för att skapa en modell som avgör ifall ett avrop är en varning eller ej varning. En utvärdering av algoritmernas prestanda har gjorts genom användningen av en förvirringsmatris där noggrannhet, felprocent, precision och täckning beräknats. Icke-övervakad inlärning har utförts genom att man skapar en pivottabell som visar alla förändringar mellan leveransplaner. Denna pivottabell har gjorts på dagsnivå, veckonivå och månadsnivå. Eftersom förändringar i närtid är mer problematiska än förändringar längre fram har de efterfrågade kvantiteterna viktats. Summan av absolutbeloppet av alla kvantitetsförändringar mellan leveransplanerna har beräknats som sedan använts som indata till att klustra. Klustring har använts med hjälp av k-medelkluster, gaussisk blandningsmodell och birch för att avgöra om en leveransplan avviker och därmed utgör en varning. Icke-övervakad inlärning har utvärderats med hjälp av siluettpoäng (och tröghet för k-medelkluster) samt en manuell verifikation där korrekt verifikation, felaktig verifikation, precision och täckning beräknats.
