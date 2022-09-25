@@ -25,3 +25,7 @@ Type `python3 main.py -h` to get a list of commands.
 ## Image of a sample run
 
 ![Image of a sample run](./images/sample_run.png)
+
+## Credits
+
+The idea is based on the following youtube video: <https://www.youtube.com/watch?v=EOaPb9wrgDY>
