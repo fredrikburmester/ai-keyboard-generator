@@ -1,13 +1,12 @@
 # Create starting population of the 1st generation 
 import argparse
 from functools import cache
-from multiprocessing import Pool
 import random
 import re
 import time
 import matplotlib.pyplot as plt
 
-run_tests = False
+simple_example = False
 
 # fingers_interface = {
 #   0: 'left_pinky',
@@ -266,44 +265,6 @@ def get_distance(key1, key2):
   # assertion error if we get here
   assert False, "No distance found for keys: " + key1 + " and " + key2
 
-@cache
-def get_key_finger_relation(key):
-  row = get_key_row(key)
-  col = get_key_col(key)
-
-  if key == '_':
-    return 4
-  elif key == '.':
-    return 7
-  elif key == ',':
-    return 6
-
-  if col == 1:
-    return 0
-  elif col == 2:
-    return 1
-  elif col == 3:
-    return 2
-  elif col == 4:
-    return 3
-  elif col == 5:
-    return 3
-  elif col == 6:
-    return 5
-  elif col == 7:
-    return 5
-  elif col == 8:
-    return 6
-  elif col == 9:
-    return 7
-  elif col == 10:
-    return 8
-  elif col == 11:
-    return 8
-  
-  # assertion error if we get here
-  assert False, "No key finger relation found"
-
 def euclidean_key_distance(key1, key2):
     # Define the keyboard layout
     keyboard = [
@@ -326,7 +287,7 @@ def euclidean_key_distance(key1, key2):
 
     return distance
 
-def finger_hey_relation_euclidean(key, fingers = 3):
+def finger_hey_relation(key, fingers = 4):
   if fingers == 4:
     relations = {
       'left_pinky': ['q', 'a', 'z'],
@@ -356,40 +317,37 @@ def finger_hey_relation_euclidean(key, fingers = 3):
     if key in relations[finger]:
       return fingers_interface[finger]
 
-def eval(keyboard, text):
+def eval(keyboard, text, distance_calculation = 'Simple'):
   # Finger positions
   fingers = ['a', 's', 'd', 'f','_', 'j', 'k', 'l', 'ö']
-  three_fingers = ['s', 'd', 'f','_', 'j', 'k', 'l']
-  two_fingers = ['d', 'f','_', 'j', 'k']
-  one_finger = ['f','_', 'j']
+  # three_fingers = ['s', 'd', 'f','_', 'j', 'k', 'l']
+  # two_fingers = ['d', 'f','_', 'j', 'k']
+  # one_finger = ['f','_', 'j']
   
   # For each letter in the text, check what finger should be used, check where the finger is, and calculate the distance
   distance = 0
 
   for i in range(len(text)):
-    if run_tests:
+    if simple_example:
       print()
       print("Letter: " + text[i])
 
     key_index = keyboard.find(text[i])
     key = original_keyboard[key_index]
 
-    if run_tests: print("Key: " + key + " index: " + str(key_index))
+    if simple_example: print("Key: " + key + " index: " + str(key_index))
 
-    finger = get_key_finger_relation(key)
+    finger = finger_hey_relation(key)
 
-    if run_tests: print(f"{fingers[finger]} -> {key}, distance: {euclidean_key_distance(fingers[finger], key)}")
+    if simple_example: print(f"{fingers[finger]} -> {key}, distance: {euclidean_key_distance(fingers[finger], key)}")
 
     finger_pos = fingers[finger]
-
-    distance += euclidean_key_distance(finger_pos, key)
+    if distance_calculation == 'Simple':
+      distance += euclidean_key_distance(finger_pos, key)
+    elif distance_calculation == 'Complex':
+      distance += get_distance(finger_pos, key)
 
     fingers[finger] = key
-
-  # print("get_key_finger_relation_time: " + str(get_key_finger_relation_time))
-  # print("get_distance_time: " + str(get_distance_time))
-  # print("original_keyboard_find_time: " + str(original_keyboard_find_time))
-  # print()
 
   return distance
 
@@ -426,13 +384,13 @@ def main():
   # command line arguments
   parser = argparse.ArgumentParser()
   parser.add_argument("-t", "--text", help="text to be typed")
-  parser.add_argument("-test", "--test", help="run tests", action="store_true")
+  parser.add_argument("-e", "--example", help="run a simple example", action="store_true")
   parser.add_argument("-g", "--generations", help="number of generations", type=int)
   parser.add_argument("-p", "--population", help="population size", type=int)
   args = parser.parse_args()
 
-  global run_tests
-  run_tests = args.test
+  global simple_example
+  simple_example = args.example
 
   if args.population:
     pop_size = args.population
@@ -449,9 +407,6 @@ def main():
     evaluation_text = args.text
   else:
     evaluation_text = open("dataset.txt", "r", encoding="utf8").read()
-
-  print("Original keyboard:")
-  print_keyboard(original_keyboard)
 
   population = init_population(pop_size)
 
@@ -471,47 +426,34 @@ def main():
   plt.ylabel('Fitness')
   plt.title('Best fitness score per generation')
 
-  # Tests
-  if run_tests: 
+  # Simple Example --------
+  if simple_example: 
     generations = 1
     pop_size = 1
-
     population = [original_keyboard]
     if args.text:
       evaluation_text = args.text
     else:
       evaluation_text = open("test_dataset.txt", "r").read()
-    print("Tests:")
-    assert get_distance('a', 's') == 1
-    assert get_distance('a', 'd') == 2
-
     print(eval(original_keyboard, "hejäqa"))
-
     print(eval(original_keyboard, evaluation_text))
+  # -----------------------
 
   for i in range(generations):
-    print("--------------------")
-    print("Generation: " + str(i+1) )
-    print("Population length: ", len(population))
-
     evals = []
-    pool = Pool()
 
-    # Time the evaluation
     start = time.time()
-    # evals = pool.imap_unordered(partial(eval, text=evaluation_text), population)
     for j in range(len(population)):
       evals.append(eval(population[j], evaluation_text))
     end = time.time()
 
-    # evals = list(evals)
-
+    print("--------------------")
+    print("Generation: " + str(i+1) )
+    print("Population length: ", len(population))
     print("Evaluation time: " + str(end - start))
-
     print("Best eval: ", evals[0])
 
     all_best_evals.append(int(evals[0]))
-
     
     # Best 10 keyboards
     if pop_size > 3:
@@ -525,38 +467,16 @@ def main():
       print("Best keyboard from previous generation:\n")
       print_keyboard(population[0])
 
-    # print(evals)
-    # # Sort population by evaluation
-
-    # for i in range(len(evals)):
-    #   print(f"{population[i]}: {evals[i]}")
-
+    print()
     population = [x for _,x in sorted(zip(evals, population))]
-
-    # print()
-    # for i in range(len(evals)):
-    #   print(f"{population[i]}: {evals[i]}")
-
     next_gen = next_generation(population, pop_size)
     population = next_gen
-    
 
     # Save the plot to a file
     plt.plot(all_best_evals, color="green")
+    plt.savefig(f"./images/plot.png")
 
-  # # plot a fitted line to the data
-  # x = range(len(all_best_evals))
-  # y = all_best_evals
-
-  # print(x, y)
-  # z = np.polyfit(x, y, 1)
-  # p = np.poly1d(z)
-  # plt.plot(x, p(x), color="red")
-
-  plt.savefig(f"./images/plot.png")
-
-
-  if not run_tests:
+  if not simple_example:
     print("\nBest keyboard: ")
     print_keyboard(population[0])
     plt.show()
