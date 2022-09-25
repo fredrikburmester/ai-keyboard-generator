@@ -24,7 +24,7 @@ Type `python3 main.py -h` to get a list of commands.
 
 ## Image of a sample run
 
-![Image of a sample run](./images/sample_run.png)
+![Image of a sample run](./images/long_training_example.png)
 
 ## Credits
 
