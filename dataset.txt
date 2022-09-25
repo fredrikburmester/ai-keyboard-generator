@@ -1,0 +1,127 @@
+För skärmläsning
+En text som ska läsas på skärm måste skrivas på ett annat sätt än en text som ska läsas på papper. Det är lätt att inse om man tänker på de olika lässituationerna. Du vet redan från början om en text på papper är på tre eller på femton sidor. Det är inte lika uppenbart när du läser på skärm.
+
+När du läser på papper har du en större del av texten för ögonen. Det är lätt att gå tillbaka sju stycken och kontrollera en uppgift. Det är också lätt att ögna igenom en hel sida i förväg för att få en uppfattning om innehållet.
+
+När du läser på skärm har du inte alls samma överblick. Visst kan du använda rullningslisten och låta texten flyta förbi, men det går oändligt långsamt, jämfört med det mänskliga ögats förmåga.
+
+
+Informationspaket
+Man kan säga att den textmängd som ryms på skärmen är ett informationspaket. Tänk efter vad det är du ska skriva och försök att paketera informationen i lättlästa avsnitt. Börja inte en tanke i ett stycke bara för att göra en längre utvikning och sedan avsluta tankegången fem stycken längre ner. Det som hör ihop ska stå ihop.
+
+Ett informationspaket kan löpa över två eller högst tre korta stycken. Sedan försvinner inledningen ut ur skärmbilden och det blir svårare för läsaren att få överblick. Skriv korta stycken med tomrad mellan styckena.
+
+
+Tätt mellan rubrikerna
+Rubriker hjälper läsaren att få struktur på din text. Var generös med rubriker. Detta gäller alla längre texter, men särskilt för texter som ska läsas på skärm. En läsare som surfar på Internet är otåligare än en som bläddrar i en tidning. Om din text löper över 20 rader utan rubriker är det stor risk att den förblir oläst, trots att den kanske innehåller just den information läsaren söker.
+
+Försök att hitta slagkraftiga rubriker som verkligen säger något om innehållet i texten. När din läsare är i slutet av ett informationspaket har han eller hon redan sett nästa rubrik. Om han förstår vart din tankegång är på väg kommer han att läsa din text med större tålamod.
+
+
+Vad söker läsaren?
+Vi har sagt att det är skillnad mellan skärmläsning och pappersläsning, men det är också skillnad mellan olika slags skärmläsning. Det är lätt att tänka sig flera nivåer:
+
+Ett PM på företagets intranät
+En informationstext på Internet
+Reklam på Internet
+I det första fallet är läsaren mer eller mindre tvungen att läsa vad du skrivit. I det andra fallet har läsaren troligen sökt din text och är intresserad (detta gäller till exempel den text du läser just nu). I det tredje fallet är läsaren sannolikt måttligt intresserad.
+
+Det säger sig självt att man måste utforma dessa tre texttyper på olika sätt. I och för sig gäller allt som sagts ovan alla tre typerna, men i ett PM på intranätet kan du nog våga dig på lite längre stycken och lite färre rubriker. Däremot måste en reklamtext på Internet göras mycket lättläst.
+
+
+En användbar metod
+Vi tänker oss att du fått i uppdrag att skriva en text som ska läggas ut på företagets webbplats. Börja då med att titta på hur andra liknande sidor på sajten ser ut. Det är alltid lättare för surfaren att hitta om era sidor har en enhetlig form. (Vi förutsätter här att er webbplats har en konsekvent formgivning.)
+
+Hur ser det ut? Finns det flera rubriknivåer, huvudrubrik och mellanrubriker? Hur är det med bilder, ska du skriva bildtexter? Ska det vara specifikationer, tabeller och sammanfattningar? Hur lång ska texten vara?
+
+Troligen är det inte du själv som formger sidan, men du ska redan från början skriva för den tänkta formen. Gör sedan som vi sagt ovan. Paketera informationen i lämpliga bitar och formulera intressanta rubriker.
+
+
+Länkar
+En lång text kan behöva delas upp i länkar. Där är det viktigt att du tänker på vad vi sa tidigare, att det som hör ihop ska stå ihop. Länkarna har inget egenvärde. Eftersom det tar tid att ladda in en ny sida blir läsaren bara irriterad om han behöver klicka sig fram till fortsättningen på en sammanhängande text.
+
+Däremot kan man tänka sig att en allmän beskrivning ligger på en sida och att fördjupningar och specifikationer ligger som länkar. Då kan läsaren själv välja om han behöver gå dit.
+
+Ta alltid kontakt med de webbansvariga innan du börjar skriva och diskutera upplägg, texttyp, länkar och annat. Det spar du mycket tid på. De har teknisk och grafisk kunskap och du har kunskap i ditt ämne. Det är när ni kombinerar era kunskaper som det blir bra webbsidor.
+
+
+Tidsaspekten
+Text åldras fort på Internet. Sätt inte rubriken "Senaste nytt" om du vet att era webbsidor inte uppgraderas regelbundet. Efter några månader är dina nyheter gamla och rubriken blir missvisande.
+
+Gör en rimlig bedömning av hur länge din text kommer att ligga ute och formulera dig därefter. Försök att se din text med en framtida läsares ögon och se om den håller måttet. Var försiktig med tidsangivelser.
+
+
+Till sist, det viktigaste först
+Internet rymmer en enastående mängd skräp. Det vet alla som surfar regelbundet. Man orkar inte läsa en lång text för att eventuellt hitta en informationsbit som gömmer sig i det näst sista stycket. Ska du fånga din läsare måste du ge honom det han söker direkt, gärna redan i rubriken. Kan du få honom att förstå att din text rymmer det han vill ha så läser han, annars surfar han vidare.
+
+Miljörätten omfattar frågor om bl.a. luft- och vattenkvalitet, användning av naturresurser, skydd för arter och livsmiljöer, återanvändning och återvinning av avfall m.m. samt kontroll av kemikalier. Miljöbalken är den centrala svenska miljöförfattningen. I syfte att främja en hållbar utveckling innehåller balken olika rättsliga verktyg i form av t.ex. hänsynskrav, miljökvalitetsnormer, miljökonsekvens-beskrivningar, tillståndsprövning och särskilda skydd för arter och naturmiljöer. Vid sidan av miljöbalken finns ett stort antal författningar som på olika sätt har betydelse från miljösynpunkt. Den svenska miljölagstiftningen, och tillämpningen av denna, påverkas påtagligt av internationella regler och särskilt av EU-rätten. EU:s miljörätt är omfattande och växande.
+
+Den svenska miljörätten introducerar läsaren i miljörätten som juridiskt ämne. Bland författningarna analyseras miljöbalken särskilt ingående. Plan- och bygglagen och skogsvårdslagen är exempel på annan mark- och miljölagstiftning som behandlas. Den svenska lagstiftningen sätts in i ett internationellrättsligt sammanhang, främst EU-miljörätten. I boken ges exempel på hur regler används i olika situationer och flera rättsfall från svenska domstolar, däribland många från Mark- och miljööverdomstolen, och från EU-domstolen behandlas. En central fråga i boken är om lagstiftningen är ändamålsenlig från miljösynpunkt.
+
+En vattenbalansmodell för beräkning av grundvattenbildningen i svenska jordar har utvecklats och kartor över grundvattenbildningens storlek i olika jordar har tagits fram. Beräkningarna bygger på utnyttjandet av landsomfattande databaser över jordarter och markanvändning samt tidsserier av vattenföring och ytinterpolerad nederbörd och lufttemperatur. Modellen är en förenklad variant av HBV-modellens markvattenrutin. Allt regn eller snösmältning antas infiltrera i rotzonen och antingen avdunsta, lagras tillfälligt eller perkolera och bilda grundvatten. När rotzonens vatteninnehåll är lika med modellparametern fältkapacitet är avdunstningen potentiell och perkolationen är lika med all ytterligare vattentillförsel. När vatteninnehållet är mindre än fältkapacitet sker ingen perkolation och avdunstningens andel av den potentiella minskar linjärt med minskat markvatteninnehåll.
+
+I ett första steg kalibrerades modellen för att ta fram samband mellan jordart och vattenhållande egenskaper hos jorden (i modellen beskrivet av parametern fältkapacitet). Modellen kalibrerades mot avrinningens årsvärden i 161 mindre (<2000 km2) avrinningsområden över landet. Härvid antogs den sammanlagda årsavrinningen från ett avrinningsområde vara lika med summan av grundvattenbildningen i dess delområden med olika jordarter. Vid den slutgiltiga kalibreringen slogs jordarterna samman till tre så kallade markklasser, grov jord, morän och fin jord, utan hänsyn till markanvändningen skog/öppen mark. Till dessa klasser kom klassen sjö+torv, vilken antogs sakna markvattenmagasin och från vilken avdunstningen ständigt antogs vara potentiell. I ett andra steg användes de framkalibrerade värdena på fältkapacitet för att beräkna grundvattenbildningen över landet med hjälp av rikstäckande tidsserier av nederbörd och lufttemperatur.
+
+Ett speciellt problem var att få yttäckande tidsserier av den potentiella avdunstningen. En enkel modell med vilken den potentiella avdunstningen beräknades ur lufttemperatur utvecklades och användes vid kalibreringen (steg 1) och vid beräkningarna av grundvattenbildning i olika jordar (steg 2). På grund av ett inbördes samband mellan parametern fältkapacitet och den viktigaste parametern för potentiell avdunstning gick det inte att optimera fram markklasspecifika värden för parametern fältkapacitet. Vi kunde dock visa att för rimliga värden på avdunstningsparametern gick det att kalibrera fram markklasspecifika värden på parametern fältkapacitet, vilka bedömdes som rimliga för respektive markklass (70 mm för ”grov jord”, 244 mm för ”morän” och 366 mm för ”fin jord”).
+
+Den beräknade grundvattenbildningen var störst i grov jord, med värden över 600 mm/år i sydvästra Götaland. Den minskade med ökande värde på parametern fältkapacitet, ned till under 150 mm/år i fin jord i Mälardalen och på Östgötaslätten. (Fjällområden ingår inte i beräkningarna.) I Svealand och Götaland var den beräknade årliga grundvattenbildningen i grov jord omkring 70 mm större än i morän. Den grundvattenbildning som statistiskt sett underskrids ett år av 10 var ca 75 mm lägre än flerårsmedelvärdet, för både grov jord och fin jord.
+
+Den här boken är en del i avrapporteringen från ett forskningsprogram om social tillit som vi är engagerade i sedan ett antal år
+tillbaka. I boken presenteras nya uppgifter om svenskarnas tillit.
+Det är inte möjligt att genomföra en sådan här långsiktig satsning utan att få stöd både från enskilda personer och i form av ekonomiska resurser. Vi vill tacka personer som arbetat med oss i forskningsprogrammet. Först och allra främst vår djupt saknade kollega
+Thorleif Pettersson, som avled i ett tidigt skede av arbetet. Han
+hade stor betydelse för inriktningen och utformningen av studierna. Inte minst saknar vi hans handfasta kreativitet. Tack också till
+Julia Grosse för alla hennes insatser och till Göran Johansson samt
+Stig ”Loffe” Elofsson. En annan person vi särskilt vill tacka är den
+amerikanske tillitsforskaren Eric Uslaner som med engagemang
+delat våra vedermödor, inte minst kring metodfrågor. Vidare vill vi
+tacka deltagarna i civilsamhälleseminariet på Ersta Sköndal högskola, framför allt Lars-Erik Olsson och Emilia Forssell samt deltagarna vid ett SNS-seminarium, i synnerhet Katarina Roos som
+förtjänstfullt kommenterade ett tidigt utkast till boken.
+Ett varmt tack också till Länsförsäkringar AB för det stora ekonomiska stöd som vi fick över en längre period. Några personer
+inom Länsförsäkringar AB bör nämnas som på olika sätt haft stor
+betydelse för vårt arbete: Tommy Persson, Peter Lööf och Torbjörn
+Olsson. Substantiella stöd som har varit av stor vikt har vi också fått,
+dels från Vetenskapsrådet och dels från Sveriges Kommuner och
+Landsting (SKL), där vi speciellt tackar Bo Per Larsson för ett gott
+samarbete. Ett mindre initialt stöd erhölls också från Riksbankens
+Jubileumsfond. Vi vill även tacka Ersta Sköndal högskolas ledning
+för en positiv hållning till våra ambitioner med programmet.
+Att kortfattat återge hur barn i dessa åldrar mår är inte helt enkelt då det ser mycket olika ut beroende
+på vilka frågeområden som studeras. Generellt framkommer i denna rapport att hälsan, levnadsvanorna, de sociala relationerna samt uppfattningen om skolmiljön förändras över åldrarna och att
+det ofta skiljer sig mellan pojkar och flickor. Vid 11 års ålder mår man som regel bättre, lever sundare
+och upplever skolan mer positivt än då man kommer upp i högstadiet (13–15-årsåldern).
+Såväl självskattad hälsa, somatiska och psykiska besvär, som allmänt välbefinnande försämras
+med stigande ålder och skillnaden mellan pojkar och flickor ökar. Majoriteten skattar att de har en bra
+hälsa och sett över tid har andelen som skattar sig som mycket friska varit oförändrad.
+Sett över tid har de somatiska och psykiska besvären ökat bland både pojkar och flickor, med
+undantag av de 11-åriga flickorna.
+Ändå är det fortsatt så att flickorna trivs i mindre utsträckning med livet än pojkarna i alla åldrarna.
+Denna skillnad har blivit mer märkbar under åren 1985–2005, då framför allt de 13-åriga och 15-
+åriga flickornas trivsel minskat. Pojkar uppfattar att de är för smala och flickor att de är för tjocka med
+stigande ålder och detta påverkar också i vilken utsträckning de vill förändra sin vikt. 
+Såväl tobaks- som alkoholvanor etableras under högstadietiden. Flickor röker i högre utsträckning än
+pojkar. Andelen som röker minst varje vecka har dock minskat både bland flickor och pojkar mellan
+åren 2001 och 2005. Pojkar snusar dock i högre utsträckning än flickor och ser man till den totala
+tobakskonsumtionen brukar 15-åriga pojkar i högre utsträckning tobak regelbundet än flickor.
+När det gäller alkoholbruk uppger cirka 15 procent av 15-åringarna att de druckit så mycket alkohol att de blivit fulla fyra gånger eller mer. Sett över tid ökade berusningsdrickandet mellan 1985 och
+2001 bland flickorna, men har sedan dess minskat bland såväl flickor som pojkar
+Andelen som äter frukost minskar med åldern och mest bland flickorna. Att matvanorna förändras
+och försämras med åldern märks även då frågor ställts om de dagligen äter frukt, grönsaker, godis och
+läsk. Generellt äter pojkarna i mindre utsträckning nyttigheter än flickorna.
+Andelen som är fysiskt aktiva minskar med åldern, samtidigt som andelen som tittar på tv och
+använder datorn mer än fyra timmar om dagen ökar med åldern. Sett över tid har andelen som varit
+fysiskt aktiva minst fyra gånger i veckan varierat och det är svårt att se en tydlig trend avseende detta.
+Majoriteten har tre eller fler nära vänner. Umgängesmönstret förändras över åldrarna så till vida att
+andelen som träffar kompisar efter skolan minskar mellan 11 år och 15 år, samtidigt som fler träffar
+kompisar på kvällarna ju äldre de blir.
+Gemensamt för pojkar och flickor är att de får svårare att tala med sina föräldrar ju äldre de blir,
+samtidigt som de får lättare att tala med vänner av motsatt kön. Kontakten med föräldrarna har inte
+förändrats över tid.
+Skoltrivseln minskar med åldern och till skillnad från många andra frågor skiljer sig pojkars och flickors uppfattning i denna fråga mest i den yngsta åldersgruppen, då flickorna uppger att de trivs mycket
+bra i skolan i högre utsträckning. Samtidigt som skoltrivseln minskar med åldern ökar känslan av att
+vara stressad av sitt skolarbete och i 15-års ålder känner sig flickorna mer stressade än pojkarna.
+Sett över tid har andelen som tycker mycket bra om skolan till stora delar varit oförändrad åren
+1985–2001. Vid fördjupade frågor kring skolmiljön framkommer att uppfattningarna skiljer sig mellan åldrarna, medan pojkar och flickor i stort har samma uppfattning. Med stigande ålder är det fler
+som tycker att kraven ökar, samtidigt som det är färre som tycker att de har möjlighet att påverka sin
+skolsituation, att de blir rättvist behandlade av sina lärare och att de får hjälp från lärare då de behöver
+det.
