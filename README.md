@@ -11,7 +11,7 @@ The AI is based on a genetic algorithm. The keyboard is represented as a string 
 The algorithm is based on the following steps:
 
 1. Generate a population of keyboards.
-2. Calculate the fitness of each keyboard.
+2. Calculate the fitness of each keyboard based on a swedish dataset of random texts.
 3. Select 10% of the best keyboards, breed some of the best 50% of keyboard, and add 40% of random keyboards to the population.
 4. Repeat from step 2
 
