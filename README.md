@@ -22,7 +22,21 @@ The algorithm is based on the following steps:
 
 Type `python3 main.py -h` to get a list of commands.
 
-## Image of a sample run
+## Results
+
+### Generated keyboard
+
+Here is the final generated keyboard from the image below. We can see that the letters in the middle row (the row where the fingers rest) are letters that are common.
+
+```text
+
+```text
+åtuch.bx,äd
+ amislnoerkg
+  jzövwpqfy
+```
+
+### Image of a sample run
 
 ![Image of a sample run](./images/long_training_example.png)
 
